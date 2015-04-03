@@ -1,0 +1,24 @@
+<%= form_for(@upcode) do |f| %>
+  <% if @upcode.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@upcode.errors.count, "error") %> prohibited this upcode from being saved:</h2>
+
+      <ul>
+      <% @upcode.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :upc %><br>
+    <%= f.text_field :upc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+ 
+

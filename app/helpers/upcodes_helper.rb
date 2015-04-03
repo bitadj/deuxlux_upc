@@ -1,0 +1,2 @@
+module UpcodesHelper
+end

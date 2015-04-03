@@ -1,0 +1,30 @@
+<%= form_for(@style) do |f| %>
+  <% if @style.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@style.errors.count, "error") %> prohibited this style from being saved:</h2>
+
+      <ul>
+      <% @style.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :styleno %><br>
+    <%= f.text_field :styleno %>
+  </div>
+  <div class="field">
+    Season<br>
+    <%= f.collection_select :season_id, Season.all, :id, :name, include_blank: "Select season" %>
+    <%= f.select :year, 2006..Time.now.year %>
+    </div>
+  <div class="field"> 
+    UPC Code <br>
+    <%= f.collection_select :styleupcode, Upcode.all, :upc, :upc, include_blank: "Select upcode" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
